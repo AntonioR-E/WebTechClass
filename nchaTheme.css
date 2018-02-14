@@ -1,0 +1,24 @@
+html{
+
+    background: url(images/214464144_fb8c67d9e1_c.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+}
+#panel{
+    padding: 25px 270px 120px;
+    margin:50px;
+    border-radius: 25px;
+    background-color: rgba(111, 60, 49, 0.85);
+
+    text-align: center;
+}
+h1 {
+
+}
+.logo {
+    padding-top: 130px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
