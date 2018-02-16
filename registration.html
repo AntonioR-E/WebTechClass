@@ -4,30 +4,167 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link href="nchaTheme.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="validateOnSubmit.js"></script>
 </head>
 <body>
 <div id="panel">
-    <img class="logo" src="images/logo.png" alt="Cutting Horse">
-    <form action="">
-        <h2>Registration Form</h2>
-       <p>
-            <label>First Name<span class="astr">*</span></label>
-           <input type="text" name="firstName" size="20" maxlength="30">
-            <label>Last Name<span class="astr">*</span></label>
-           <input type="text" name="lastName" size="20" maxlength="30">
-       </p>
-        <p>
-            <label>NCHA ID<span class="astr">*</span></label>
-            <input type="text" name="id" size="20" maxlength="30">
-        </p>
-        <p>
-            <label>Email</label>
-            <input type="text" name="email" size="20" maxlength="30">
-        </p>
-        <p>
-            <label>Phone <span class="astr">*</span></label>
-            <input type="text" name="phone" size="20" maxlength="30">
-        </p>
+    <img class="logo-r" src="images/logo.png" alt="Cutting Horse">
+    <h2>Registration Form</h2>
+    <form id="myForm" action="" method="get" onsubmit="return validate()">
+       <fieldset>
+           <legend>
+               Your Details
+           </legend>
+        <table>
+            <tr>
+                <td><label for="firstName" class="lbls">First Name</label>
+                    <input type="text" name="firstName" id="firstName" size="20" maxlength="30"/>
+                    <sup class="req">* Required</sup>
+                </td>
+                <td>
+                    <label for="ln" class="lbls">Last Name</label>
+                    <input type="text" name="lastName" id="ln" size="20" maxlength="30" required="required"/>
+                    <sup class="req">* Required</sup>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="formid" class="lbls">NCHA ID</label>
+                    <input type="text" name="id" id="formid" size="20" maxlength="30" required="required"/>
+                    <sup class="req">* Required</sup>
+                </td>
+                <td>
+                    <label for="email" class="lbls">Email</label>
+                    <input type="text" name="email" id="email" size="20" maxlength="30"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="phone" class="lbls">Phone</label>
+                    <input type="text" name="phone" id="phone" size="20" maxlength="30" required="required"/>
+                    <sup class="req">*Required</sup>
+                </td>
+            </tr>
+        </table>
+       </fieldset>
+        <fieldset>
+            <legend>
+                Entry &amp; Fees
+            </legend>
+            <table class="signupTable">
+                <tr>
+                    <td colspan="1">
+                        <label for="showDate" class="lbls">Show Date</label>
+
+                        <select name="showDate" required="required" id="showDate">
+                            <option value="2-24">Feb. 24, 2018</option>
+                            <option value="3-3">Mar. 3, 2018</option>
+                            <option value="3-10">Mar. 10 2018</option>
+                            <option value="3-17">Mar. 17 2018</option>
+                        </select>
+                        <sup class="req">* Required</sup>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="open" value="300">
+                        <label for="open" class="ckbx">Open - $300</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="nonpro" value="300">
+                        <label for="nonpro" class="ckbx">Non-Pro - $300</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="nnp25" value="250">
+                        <label for="nnp25" class="ckbx">25K NNP - $250</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="amateur50" value="250">
+                        <label for="amateur50" class="ckbx">50K Amateur - $150</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="np35" value="150">
+                        <label for="np35" class="ckbx">35K NP - $150</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="entry[]" id="amateur15" value="150">
+                        <label for="amateur15" class="ckbx">15K Amateur - $ 150</label>
+                    </td>
+                </tr>
+            </table>
+            <fieldset>
+                <legend>
+                    Additional Fees
+                </legend>
+                <div id="divFees">
+                <input type="checkbox" name="addfees" id="stall" value="30">
+                <label for="stall" class="ckbx">Stall Rental - $30</label>
+                <input type="checkbox" name="addfees" id="rv" value="35">
+                <label for="rv" class="ckbx">RV Hookup - $35</label>
+                </div>
+            </fieldset>
+        </fieldset>
+        <fieldset>
+            <legend>
+                Payment
+            </legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="cc" class="lbls">Payment Method</label>
+                        <select name="cc" required="required" id="cc">
+                            <option value="mc">Mastercard</option>
+                            <option value="visa">Visa</option>
+                            <option value="disc">Discover</option>
+                        </select>
+                        <sup class="req">* Required</sup>
+                    </td>
+                    <td>
+                        <label for="ccn" class="lbls">Card Number</label>
+                        <input type="text" name="ccn" id="ccn" required="required">
+                        <sup class="req">* Required</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="ccXM" class="lbls">Expiration MM</label>
+                        <select name="ccXM" required="required" id="ccXM">
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                        <sup class="req">* Required</sup>
+                    </td>
+                    <td>
+                        <label for="ccXY" class="lbls">Expiration YY</label>
+                        <select name="ccYY" required="required" id="ccXY">
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                        <sup class="req">* Required</sup>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="submit" name="submit" value="Submit">
+        <input type="reset" name="reset" value="Reset">
     </form>
 
 </div>
