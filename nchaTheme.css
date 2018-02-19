@@ -5,7 +5,9 @@ html{
 
 }
 #panel{
-    padding: 25px 270px 120px;
+    padding-left: 20%;
+    padding-bottom: 20%;
+    padding-right: 20%;
     margin:50px;
     border-radius: 25px;
     background-color: rgba(111, 60, 49, 0.85);
